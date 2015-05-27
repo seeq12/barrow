@@ -75,12 +75,13 @@ function Serializer(feature, fileName) {
             outputString += tab(tabNum) + step.getKeyword() + step.getName();
             if (step.hasAttachment()) {
                 outputString += '\n';
-                if (step.hasDataTable() && step.getDataTable().raw()[0].length === 4) {
+                if (step.hasTestResults()) {
                     var tests = step.getTestResults().getTestResults();
                     tests.syncForEach(function(test) {
                         outputString += tab(tabNum + 1) + self.writeTest(test.raw(), step.getTestResults().getMaximums());
                     });
-                } else if (step.hasDataTable() && step.getDataTable().raw()[0].length !== 4) {
+                }
+                if (step.hasDataTable() && step.getDataTable().raw()[0].length !== 4) {
                     var rows = step.getDataTable().getRows();
                     rows.syncForEach(function(row) {
                         outputString += tab(tabNum + 1) + self.writeRawTable(row.raw());
