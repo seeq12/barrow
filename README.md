@@ -1,20 +1,16 @@
 Barrow
 ======
 
-Motivation
-----------
-
-* Barrow aims to serialize Cucumber feature files and reads into memory as a data object that can be further used for analysis
-* De-serializing Feature files is advantageous particularly for integrating manual tests
-* With de-serialization of test results, automated builds can determine step status and alert developers accordingly
-* After de-serialization, Barrow generates a HTML document, containing results of all the manual testing Feature files, with an overall test summary table displayed.
-
-
+Description
+-----------
+* Barrow aims to enable a manual testing framework through Behavior Driven Development.
+* By utilizing Cucumber feature files to provide scenarios for manual features that need to be tested, Barrow is an add-on to Cucumber.js
+* Barrow utilizes Cucumber to de-serialize the feature files and subsequently generates a HTML report, containing results of all the Feature files containing manual scenarios, with an overall test status summary table.
 
 Feature File Formatting
 -----------------------
 
-Barrow de-serializes and serializes Feature files that are meant for manual testing.
+Barrow de-serializes and serializes scenarios from Feature files that are meant for manual testing.
 
 For this, when a Feature file is written, a scenario must have the tag `@manual` in order for the serializer to process it, and deduce the state for that particular Feature file.
 
@@ -67,7 +63,7 @@ The Barrow module has three in-built commands:
 * `.addTestResults()`: adds test result object in a test result table to each step
 
 
-**The `serializer` command**
+**The `serializer` function**
 
 *Input*: 
 
